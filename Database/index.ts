@@ -1,0 +1,1 @@
+export * from'../Database/model/product.model'
