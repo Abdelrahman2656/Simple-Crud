@@ -17,7 +17,7 @@ app.use(cors({
 app.use(express.json())
 // Serve static files from the 'public' directory
 app.use('/public', express.static(join(resolve(), 'public')));
-app.set('views', path.resolve('views'));
+app.use('/views',express.static(join(resolve(), 'views')));
 app.set("view engine", "ejs");
 // Establish database connection
 dbconnection()
