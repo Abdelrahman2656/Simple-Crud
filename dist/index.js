@@ -54,6 +54,7 @@ app.use((0, cors_1.default)({
 app.use(express_1.default.json());
 // Serve static files from the 'public' directory
 app.use('/public', express_1.default.static((0, path_1.join)((0, path_1.resolve)(), 'public')));
+app.set('views', path_1.default.resolve('views'));
 app.set("view engine", "ejs");
 // Establish database connection
 (0, dbconnection_1.dbconnection)();
