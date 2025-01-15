@@ -1,3 +1,4 @@
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import path, { join, resolve } from 'path';
@@ -5,11 +6,13 @@ import { Product } from './Database';
 import { dbconnection } from './Database/dbconnection';
 import productRouter from './src/modules/Product/product.routes';
 
-
 const app = express();
 const port = 3000;
 dotenv.config({ path: path.resolve("./config/.env") });
 app.use(express.urlencoded({extended:true}))
+app.use(cors({
+  origin: '*', 
+}));
 //parse
 app.use(express.json())
 // Serve static files from the 'public' directory
