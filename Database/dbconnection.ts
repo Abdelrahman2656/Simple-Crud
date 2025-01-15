@@ -2,7 +2,7 @@ import { connect } from "mongoose";
 
 
 export async function dbconnection  (){
-    await connect('mongodb://localhost:27018/mvc1').then(()=>{
+    await connect(process.env.DATABASE_DB as string).then(()=>{
         console.log('db connected successfully');
         
     }).catch(()=>{

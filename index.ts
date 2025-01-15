@@ -1,14 +1,14 @@
+import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
-import { resolve, join } from 'path';
+import path, { join, resolve } from 'path';
+import { Product } from './Database';
 import { dbconnection } from './Database/dbconnection';
 import productRouter from './src/modules/Product/product.routes';
-import { Product } from './Database';
-
-
 
 
 const app = express();
 const port = 3000;
+dotenv.config({ path: path.resolve("./config/.env") });
 app.use(express.urlencoded({extended:true}))
 //parse
 app.use(express.json())
